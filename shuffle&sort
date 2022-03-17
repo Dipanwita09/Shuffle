@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+  <style>
+  .flex-container {
+  display: flex;
+  flex-wrap:wrap;
+  width:400px;
+  
+}
+
+.flex-container > div {
+  
+  width: 100px;
+  margin: 1px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  color:white;
+}
+    .flex-container .inner-box1{
+      background-color: #000000;
+    }
+    .flex-container .inner-box2{
+      background-color: #333333;
+    }
+    .flex-container .inner-box3{
+      background-color: #6F98A8;
+    }
+    .flex-container .inner-box4{
+      background-color: #EFEFEF;
+    }
+    .flex-container .inner-box5{
+      background-color: #72C3DC;
+    }
+    .flex-container .inner-box6{
+      background-color: #2B8EAD;
+    }
+    .flex-container .inner-box7{
+      background-color: #6F98A8;
+    }
+    .flex-container .inner-box8{
+      background-color: #BFBFBF;
+    }
+    .flex-container .inner-box9{
+      background-color: #2F454E;
+    }
+    body{
+     display: flex;
+  flex-wrap:nowrap; 
+    }
+    .btn{
+      background-color: #72C3DC;
+      height:50px;
+      width:100px;
+    }
+  
+  </style>
+<body>
+  <div class="flex-container">
+    
+  </div>
+
+</body>
+  <script>let arrayVariable = [1,2,3,4,5,6,7,8,9];
+let arrayLength = arrayVariable.length;
+let temp;
+function init(){
+
+
+
+const element = document.getElementsByClassName("flex-container");
+  if(element){
+    element[0].remove();
+  }
+
+const mainElement = document.getElementsByTagName("body");
+tempele = document.createElement('div');
+tempele.className = 'flex-container';
+ document.getElementsByTagName('body')[0].appendChild(tempele);
+
+for (i = 0; i <= arrayLength; i++) {
+  temp = document.createElement('div');
+  temp.className = 'inner-box'+arrayVariable[i];
+  temp.innerHTML = arrayVariable[i];
+  document.getElementsByClassName('flex-container')[0].appendChild(temp);
+}
+ 
+
+}
+
+
+for (i = 0; i <= 1; i++) {
+  btn = document.createElement('button');
+  btn.className = 'btn';
+  if(i==0){
+  btn.innerHTML = 'shuffle'; 
+  btn.setAttribute('onclick','shuffle();');
+    
+  }else{
+    btn.innerHTML = 'sort';
+    btn.setAttribute('onclick','sort();');
+  }
+  document.getElementsByTagName('body')[0].appendChild(btn);
+}
+init();
+function shuffle(){
+  arrayVariable.sort(()=> Math.random() - 0.5);
+  init()
+}
+function sort(){
+  arrayVariable.sort()
+  init()
+}
+  </script>
+</html>
